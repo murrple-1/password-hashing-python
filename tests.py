@@ -1,25 +1,27 @@
+import unittest
+from six import print_
+
 import passwordhash
 
-print 'Sample hash:'
-sampleHash = passwordhash.createHash('test_password')
-print sampleHash
+class TestPasswordHash(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.hash_of_password = passwordhash.create_hash('password')
+        print_('Original Hash: ', cls.hash_of_password)
 
-print 'Test results:'
+    def test_create_hash(self):
+        passwordhash.create_hash('test_password')
 
-hashOfPassword = passwordhash.createHash('password')
+    def test_successful_validation(self):
+        self.assertTrue(passwordhash.validate_password('password', TestPasswordHash.hash_of_password))
 
-if passwordhash.validatePassword('password', hashOfPassword):
-    print 'pass'
-else:
-    print 'FAIL'
+    def test_unsuccessful_validation(self):
+        self.assertFalse(passwordhash.validate_password('wrong_password', TestPasswordHash.hash_of_password))
 
-if passwordhash.validatePassword('wrong_password', hashOfPassword):
-    print 'FAIL'
-else:
-    print 'pass'
+    def test_type_error(self):
+        with self.assertRaises(TypeError):
+            passwordhash.validate_password('password', algorithm='')
 
-try:
-    passwordhash.validatePassword('password', algorithm='')
-    print 'FAIL'
-except TypeError as e:
-    print 'pass'
+if __name__ == '__main__':
+    unittest.main()
+
