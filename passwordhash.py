@@ -8,6 +8,8 @@ import hashlib
 import six
 from six.moves import xrange
 
+import streql
+
 # These constants may be changed without breaking existing hashes.
 PBKDF2_ALGORITHM = u'sha256'
 PBKDF2_ITERATIONS = 1000
@@ -38,16 +40,5 @@ def validate_password(password, correct_hash):
 
     computed_hash = hashlib.pbkdf2_hmac(algorithm, password, salt, iterations)[0:len(hash)]
 
-    return _slow_equals(hash.decode('latin-1'), computed_hash.decode('latin-1'))
-
-# via https://github.com/PeterScott/streql
-def _slow_equals(x, y):
-  """Does x == y? Runtime does not depend on the bytes in the strings."""
-  if len(x) != len(y):
-    return False
-
-  result = 0
-  for i in xrange(len(x)):
-    result |= ord(x[i]) ^ ord(y[i])
-  return result == 0
+    return streql.equals(hash, computed_hash)
 

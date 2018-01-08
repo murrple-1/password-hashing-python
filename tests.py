@@ -1,5 +1,4 @@
 import unittest
-from six import print_
 
 import passwordhash
 
@@ -7,7 +6,6 @@ class TestPasswordHash(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.hash_of_password = passwordhash.create_hash('password')
-        print_('Original Hash: ', cls.hash_of_password)
 
     def test_create_hash(self):
         passwordhash.create_hash('test_password')
