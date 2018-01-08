@@ -13,13 +13,13 @@ PBKDF2_SALT_BYTE_SIZE = 24
 PBKDF2_HASH_BYTE_SIZE = 24
 
 # format: algorithm:iterations:salt:hash
-def createHash(password, algorithm=PBKDF2_ALGORITHM, iterations=PBKDF2_ITERATIONS, saltByteSize=PBKDF2_SALT_BYTE_SIZE, hashByteSize=PBKDF2_HASH_BYTE_SIZE):
-    salt = base64.b64encode(os.urandom(saltByteSize))
-    hash = hashlib.pbkdf2_hmac(algorithm, password, salt, iterations)[0:hashByteSize]
+def create_hash(password, algorithm=PBKDF2_ALGORITHM, iterations=PBKDF2_ITERATIONS, salt_byte_size=PBKDF2_SALT_BYTE_SIZE, hash_byte_size=PBKDF2_HASH_BYTE_SIZE):
+    salt = base64.b64encode(os.urandom(salt_byte_size))
+    hash = hashlib.pbkdf2_hmac(algorithm, password, salt, iterations)[0:hash_byte_size]
     return '{0}:{1}:{2}:{3}'.format(algorithm, iterations, salt, base64.b64encode(hash))
 
-def validatePassword(password, correctHash):
-    params = correctHash.split(':')
+def validate_password(password, correct_hash):
+    params = correct_hash.split(':')
     if len(params) != 4:
         return False
 
@@ -28,12 +28,12 @@ def validatePassword(password, correctHash):
     salt = params[2]
     hash = base64.b64decode(params[3])
 
-    computedHash = hashlib.pbkdf2_hmac(algorithm, password, salt, iterations)[0:len(hash)]
+    computed_hash = hashlib.pbkdf2_hmac(algorithm, password, salt, iterations)[0:len(hash)]
 
-    return _slowEquals(hash, computedHash)
+    return _slow_equals(hash, computed_hash)
 
 # via https://github.com/PeterScott/streql
-def _slowEquals(x, y):
+def _slow_equals(x, y):
   """Does x == y? Runtime does not depend on the bytes in the strings."""
   if len(x) != len(y):
     return False
@@ -42,3 +42,4 @@ def _slowEquals(x, y):
   for i in xrange(len(x)):
     result |= ord(x[i]) ^ ord(y[i])
   return result == 0
+

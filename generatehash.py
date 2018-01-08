@@ -10,7 +10,8 @@ def main():
         print 'Usage: {0} [PASSWORD]'.format(args[0])
         sys.exit(1)
 
-    print passwordhash.createHash(args[1])
+    print passwordhash.create_hash(args[1])
 
 if __name__ == "__main__":
     main()
+
