@@ -6,7 +6,6 @@ import os
 import base64
 import hashlib
 import six
-from six.moves import xrange
 
 import streql
 
