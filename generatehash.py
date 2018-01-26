@@ -4,6 +4,7 @@ import sys
 
 import passwordhash
 
+
 def main():
     args = sys.argv
     if len(args) < 2:
@@ -12,6 +13,6 @@ def main():
 
     print passwordhash.create_hash(args[1])
 
+
 if __name__ == "__main__":
     main()
-
