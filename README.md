@@ -14,7 +14,7 @@ It is a naive attempt to re-implement `PasswordHash.php`.
 
 # Usage
 
-Creating a hash-string
+## Creating a hash-string
 ```Python Console
 >>> import password_hashing
 >>> _hash = password_hashing.create_hash('your_password')
@@ -23,7 +23,7 @@ b'sha1:64000:18:B6oWbvtHvu8qCgoE75wxmvpidRnGzGFt:R1gkPOuVjqIoTulWP1TABS0H'
 >>> # snip: save `_hash` to a DB
 ```
 
-Validating the password:
+## Validating the password
 ```Python Console
 >>> # snip: retrieve `_hash` from DB
 >>> import password_hashing
