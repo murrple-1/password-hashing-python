@@ -1,8 +1,3 @@
-# Python implementation of PasswordHash.* (v1.0) https://github.com/defuse/password-hashing
-# Requires Python >= v2.7.9, due to https://www.python.org/dev/peps/pep-0466/#new-security-related-features-in-python-2-7-maintenance-releases
-# Please note, this code has not been scrutinized or peer-reviewed at all.
-# It is a naive attempt to re-implement PasswordHash.php.
-
 import os
 import base64
 import hashlib
@@ -17,8 +12,6 @@ PBKDF2_SALT_BYTE_SIZE = 24
 PBKDF2_HASH_BYTE_SIZE = 24
 
 # format: algorithm:iterations:salt:hash
-
-
 def create_hash(
         password,
         algorithm=PBKDF2_ALGORITHM,
