@@ -23,8 +23,12 @@ def create_hash(
 
     salt = base64.b64encode(os.urandom(salt_byte_size))
     hash = hashlib.pbkdf2_hmac(
-        algorithm, password, salt, iterations)[
-        0:hash_byte_size]
+            algorithm,
+            password,
+            salt,
+            iterations,
+            dklen=hash_byte_size
+        )
     return u'{algorithm}:{iterations}:{salt}:{hash}'.format(
             algorithm=algorithm,
             iterations=iterations,
