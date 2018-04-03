@@ -1,8 +1,10 @@
 # password-hashing-python
 
+[![Build Status](https://travis-ci.org/murrple-1/password-hashing-python.svg?branch=master)](https://travis-ci.org/murrple-1/password-hashing-python)
+
 Python implementation of https://github.com/defuse/password-hashing (v1.0)
 
-Supports both Python `>=v2.7.9` and `>=3`.
+Supports both Python `>=v2.7.9` and `>=3.4`.
 
 Please note, this code has not been scrutinized or peer-reviewed at all - though I'm interested, if anyone wants to look it over.
 
