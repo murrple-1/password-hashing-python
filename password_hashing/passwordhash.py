@@ -25,12 +25,12 @@ def create_hash(
     hash = hashlib.pbkdf2_hmac(
         algorithm, password, salt, iterations)[
         0:hash_byte_size]
-    return u'{}:{}:{}:{}'.format(
-        algorithm,
-        iterations,
-        salt.decode('utf-8'),
-        base64.b64encode(hash).decode(
-        'utf-8')).encode('utf-8')
+    return u'{algorithm}:{iterations}:{salt}:{hash}'.format(
+            algorithm=algorithm,
+            iterations=iterations,
+            salt=salt.decode('utf-8'),
+            hash=base64.b64encode(hash).decode('utf-8')
+        ).encode('utf-8')
 
 
 def validate_password(password, correct_hash):
