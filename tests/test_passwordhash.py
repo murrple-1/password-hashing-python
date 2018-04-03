@@ -8,13 +8,12 @@ import password_hashing
 class TestPasswordHash(unittest.TestCase):
     @staticmethod
     def generate_b_str(size=12):
-        available_chars = string.printable.encode('utf-8')
-        return b''.join(random.choice(available_chars) for _ in range(size))
+        u_chars = TestPasswordHash.generate_u_str(size=size)
+        return u_chars.encode('utf-8')
 
     @staticmethod
     def generate_u_str(size=12):
-        available_chars = string.printable
-        return u''.join(random.choice(available_chars) for _ in range(size))
+        return u''.join(random.choice(string.printable) for _ in range(size))
 
     @classmethod
     def setUpClass(cls):
