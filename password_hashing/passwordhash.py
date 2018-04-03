@@ -22,7 +22,7 @@ def create_hash(
         password = password.encode('utf-8')
 
     salt = base64.b64encode(os.urandom(salt_byte_size))
-    hash = hashlib.pbkdf2_hmac(
+    _hash = hashlib.pbkdf2_hmac(
             algorithm,
             password,
             salt,
@@ -33,7 +33,7 @@ def create_hash(
             algorithm=algorithm,
             iterations=iterations,
             salt=salt.decode('utf-8'),
-            hash=base64.b64encode(hash).decode('utf-8')
+            hash=base64.b64encode(_hash).decode('utf-8')
         ).encode('utf-8')
 
 
