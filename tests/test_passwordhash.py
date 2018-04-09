@@ -78,6 +78,12 @@ class TestPasswordHash(unittest.TestCase):
                 TestPasswordHash.generate_u_str(),
                 TestPasswordHash.hash_of_b_password))
 
+    def test_bad_hash(self):
+        self.assertFalse(
+            password_hashing.validate_password(
+                '',
+                b'bad_hash'))
+
 
 if __name__ == '__main__':
     unittest.main()
