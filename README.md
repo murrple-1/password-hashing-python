@@ -1,6 +1,6 @@
 # password-hashing-python
 
-[![Build Status](https://travis-ci.org/murrple-1/password-hashing-python.svg?branch=master)](https://travis-ci.org/murrple-1/password-hashing-python)
+[![Build Status](https://travis-ci.org/murrple-1/password-hashing-python.svg?branch=master)](https://travis-ci.org/murrple-1/password-hashing-python) [![Coverage Status](https://coveralls.io/repos/github/murrple-1/password-hashing-python/badge.svg?branch=master)](https://coveralls.io/github/murrple-1/password-hashing-python?branch=master)
 
 Python implementation of https://github.com/defuse/password-hashing (v1.0)
 
