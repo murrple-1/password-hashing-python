@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='password-hashing-python',
-    version='0.1.0',
+    version='0.2.0',
     description='Python implementation of https://github.com/defuse/password-hashing (v1.0)',
     long_description=long_description,
     url='https://github.com/murrple-1/password-hashing-python',
