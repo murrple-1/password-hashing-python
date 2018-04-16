@@ -9,14 +9,15 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='password-hashing-python',
-    version='0.2.0',
+    version='0.3.0',
     description='Python implementation of https://github.com/defuse/password-hashing (v1.0)',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/murrple-1/password-hashing-python',
     author='Murray Christopherson',
     author_email='murraychristopherson@gmail.com',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
 
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries',
