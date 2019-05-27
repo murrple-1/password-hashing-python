@@ -12,6 +12,8 @@ PBKDF2_SALT_BYTE_SIZE = 24
 PBKDF2_HASH_BYTE_SIZE = 24
 
 # format: algorithm:iterations:salt:hash
+
+
 def create_hash(
         password,
         algorithm=PBKDF2_ALGORITHM,
@@ -23,18 +25,18 @@ def create_hash(
 
     salt = base64.b64encode(os.urandom(salt_byte_size))
     _hash = hashlib.pbkdf2_hmac(
-            algorithm,
-            password,
-            salt,
-            iterations,
-            dklen=hash_byte_size
-        )
+        algorithm,
+        password,
+        salt,
+        iterations,
+        dklen=hash_byte_size
+    )
     return u'{algorithm}:{iterations}:{salt}:{hash}'.format(
-            algorithm=algorithm,
-            iterations=iterations,
-            salt=salt.decode('utf-8'),
-            hash=base64.b64encode(_hash).decode('utf-8')
-        ).encode('utf-8')
+        algorithm=algorithm,
+        iterations=iterations,
+        salt=salt.decode('utf-8'),
+        hash=base64.b64encode(_hash).decode('utf-8')
+    ).encode('utf-8')
 
 
 def validate_password(password, correct_hash):
