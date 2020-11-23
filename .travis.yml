@@ -7,7 +7,7 @@ before_install:
   - pip install -U pipenv
   - pipenv --version
 install:
-  - pipenv install --dev
+  - pipenv sync --dev
 script:
   - coverage run --source=password_hashing --omit='*/generatehash.py' -m unittest discover tests
 after_script:
